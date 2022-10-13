@@ -2,25 +2,31 @@ package com.example.programowanieaplickacjiwebowychimobilnych.controller;
 
 import com.example.programowanieaplickacjiwebowychimobilnych.data.Parcel;
 import com.example.programowanieaplickacjiwebowychimobilnych.services.ParcelService;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 @RestController
+@RequestMapping("/api/parcel")
 public class ParcelController {
 
-	@Autowired
-	ParcelService parcelService;
+	final ParcelService parcelService;
+
+	public ParcelController(ParcelService parcelService) {
+		this.parcelService = parcelService;
+	}
 
 	@GetMapping
-	public List<Parcel> getPackages() {
+	public List<Parcel> getParcels() {
 		return parcelService.getParcels();
 	}
 
-	@PostMapping
+	@GetMapping("/{parcelId}")
+	public Parcel getParcel(@PathVariable Long parcelId) {
+		return parcelService.getParcelInfo(parcelId);
+	}
+
+	@PostMapping(value = "/send")
 	public void postParcel() {
 		parcelService.createParcel();
 	}

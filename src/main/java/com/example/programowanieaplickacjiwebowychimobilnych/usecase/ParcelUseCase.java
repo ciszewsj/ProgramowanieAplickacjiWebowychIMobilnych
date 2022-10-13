@@ -10,5 +10,5 @@ public interface ParcelUseCase {
 
 	Parcel changeParcelStatus(Parcel parcel);
 
-
+	Parcel getParcelInfo(Long parcelId);
 }
