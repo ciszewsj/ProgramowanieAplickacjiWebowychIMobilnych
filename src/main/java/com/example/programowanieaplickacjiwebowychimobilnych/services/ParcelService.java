@@ -1,50 +1,46 @@
 package com.example.programowanieaplickacjiwebowychimobilnych.services;
 
+import com.example.programowanieaplickacjiwebowychimobilnych.data.Address;
+import com.example.programowanieaplickacjiwebowychimobilnych.data.Customer;
 import com.example.programowanieaplickacjiwebowychimobilnych.data.Parcel;
-import com.example.programowanieaplickacjiwebowychimobilnych.exception.ParametrizedException;
+import com.example.programowanieaplickacjiwebowychimobilnych.data.Recipient;
 import com.example.programowanieaplickacjiwebowychimobilnych.repositories.ParcelRepository;
 import com.example.programowanieaplickacjiwebowychimobilnych.usecase.ParcelUseCase;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
+import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
+import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Service;
-
-import java.util.List;
+import org.springframework.transaction.annotation.Transactional;
 
 @Service
+@RequiredArgsConstructor
+@Transactional
+@Slf4j
 public class ParcelService implements ParcelUseCase {
 	private final ParcelRepository parcelRepository;
 
-	public ParcelService(ParcelRepository parcelRepository) {
-		this.parcelRepository = parcelRepository;
-	}
-
-	public void createParcel() {
-		Parcel parcel = new Parcel();
-		parcelRepository.save(parcel);
-	}
-
-	public List<Parcel> getParcels() {
-		return parcelRepository.findAll();
-	}
-
 	@Override
-	public Parcel createParcel(Parcel parcel) {
+	public Parcel createParcel(Parcel parcel, Address address, Recipient recipient, Customer sender) {
 		return null;
 	}
 
 	@Override
-	public Parcel updateParcel(Parcel parcel) {
+	public void updateParcel(Parcel parcel, Long userId) {
+
+	}
+
+	@Override
+	public void changeParcelAddress(Long parcelId, Address address) {
+
+	}
+
+	@Override
+	public Parcel getParcel(Long parcelId, Long userId) {
 		return null;
 	}
 
 	@Override
-	public Parcel changeParcelStatus(Parcel parcel) {
+	public Page<Parcel> getParcels(Long userId) {
 		return null;
-	}
-
-	@Override
-	public Parcel getParcelInfo(Long parcelId) {
-		return parcelRepository.findById(parcelId).orElseThrow(() -> new ParametrizedException(HttpStatus.NOT_FOUND, "", ""))
-				;
 	}
 }

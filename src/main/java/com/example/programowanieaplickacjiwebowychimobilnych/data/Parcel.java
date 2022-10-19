@@ -2,16 +2,13 @@ package com.example.programowanieaplickacjiwebowychimobilnych.data;
 
 
 import lombok.Data;
-import lombok.Getter;
-import lombok.Setter;
 
 import javax.persistence.*;
 import java.util.Date;
 import java.util.List;
 
 @Entity
-@Setter
-@Getter
+@Data
 public class Parcel {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
@@ -23,7 +20,10 @@ public class Parcel {
 	public Customer sender;
 
 	@OneToOne
-	public Customer recipient;
+	public Recipient recipient;
+
+	@OneToOne
+	public Address address;
 
 	@OneToMany
 	public List<ParcelStatus> parcelStatus;

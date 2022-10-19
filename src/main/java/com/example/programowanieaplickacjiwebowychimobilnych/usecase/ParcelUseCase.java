@@ -1,14 +1,19 @@
 package com.example.programowanieaplickacjiwebowychimobilnych.usecase;
 
-import com.example.programowanieaplickacjiwebowychimobilnych.data.Parcel;
+import com.example.programowanieaplickacjiwebowychimobilnych.data.*;
+import org.springframework.data.domain.Page;
 
 public interface ParcelUseCase {
 
-	Parcel createParcel(Parcel parcel);
+	Parcel createParcel(Parcel parcel, Address address, Recipient recipient, Customer sender);
 
-	Parcel updateParcel(Parcel parcel);
+	void updateParcel(Parcel parcel, Long userId);
 
-	Parcel changeParcelStatus(Parcel parcel);
+	void changeParcelAddress(Long parcelId, Address address);
 
-	Parcel getParcelInfo(Long parcelId);
+	Parcel getParcel(Long parcelId, Long userId);
+
+	Page<Parcel> getParcels(Long userId);
+
+
 }
