@@ -40,7 +40,12 @@ public class ParcelService implements ParcelUseCase {
 	}
 
 	@Override
-	public Page<Parcel> getParcels(Long userId) {
+	public Page<Parcel> getUserParcels(Long userId) {
+		return null;
+	}
+
+	@Override
+	public Page<Parcel> getParcels() {
 		return null;
 	}
 }

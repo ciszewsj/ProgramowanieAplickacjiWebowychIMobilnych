@@ -21,7 +21,7 @@ public class ExceptionHandler {
 
 	@Data
 	@Builder
-	public static class ErrorResponse {
+		public static class ErrorResponse {
 
 		private String message;
 		private String code;

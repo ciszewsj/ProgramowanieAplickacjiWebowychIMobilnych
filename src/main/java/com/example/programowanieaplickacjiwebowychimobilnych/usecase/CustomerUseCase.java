@@ -1,6 +1,7 @@
 package com.example.programowanieaplickacjiwebowychimobilnych.usecase;
 
 import com.example.programowanieaplickacjiwebowychimobilnych.data.Customer;
+import org.springframework.data.domain.Page;
 
 public interface CustomerUseCase {
 	void createCustomer(Customer customer);
@@ -11,5 +12,5 @@ public interface CustomerUseCase {
 
 	void changePassword(Customer customer);
 
-	void getCustomers();
+	Page<Customer> getCustomers();
 }

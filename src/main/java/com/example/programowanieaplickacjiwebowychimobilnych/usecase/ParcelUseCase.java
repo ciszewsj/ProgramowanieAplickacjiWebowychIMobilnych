@@ -13,7 +13,8 @@ public interface ParcelUseCase {
 
 	Parcel getParcel(Long parcelId, Long userId);
 
-	Page<Parcel> getParcels(Long userId);
+	Page<Parcel> getUserParcels(Long userId);
 
+	Page<Parcel> getParcels();
 
 }
