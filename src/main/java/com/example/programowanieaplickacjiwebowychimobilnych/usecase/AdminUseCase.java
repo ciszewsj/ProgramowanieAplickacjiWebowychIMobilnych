@@ -1,7 +1,7 @@
 package com.example.programowanieaplickacjiwebowychimobilnych.usecase;
 
-import com.example.programowanieaplickacjiwebowychimobilnych.data.Parcel;
-import com.example.programowanieaplickacjiwebowychimobilnych.data.ParcelStatus;
+import com.example.programowanieaplickacjiwebowychimobilnych.data.entity.Parcel;
+import com.example.programowanieaplickacjiwebowychimobilnych.data.entity.ParcelStatus;
 import org.springframework.data.domain.Page;
 
 public interface AdminUseCase {

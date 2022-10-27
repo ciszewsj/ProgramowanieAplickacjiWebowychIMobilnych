@@ -1,7 +1,7 @@
 package com.example.programowanieaplickacjiwebowychimobilnych.repositories;
 
 
-import com.example.programowanieaplickacjiwebowychimobilnych.data.Parcel;
+import com.example.programowanieaplickacjiwebowychimobilnych.data.entity.Parcel;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.Optional;

@@ -1,7 +1,7 @@
 package com.example.programowanieaplickacjiwebowychimobilnych.services;
 
-import com.example.programowanieaplickacjiwebowychimobilnych.data.Parcel;
-import com.example.programowanieaplickacjiwebowychimobilnych.data.ParcelStatus;
+import com.example.programowanieaplickacjiwebowychimobilnych.data.entity.Parcel;
+import com.example.programowanieaplickacjiwebowychimobilnych.data.entity.ParcelStatus;
 import com.example.programowanieaplickacjiwebowychimobilnych.usecase.AdminUseCase;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;

@@ -1,6 +1,6 @@
 package com.example.programowanieaplickacjiwebowychimobilnych.usecase;
 
-import com.example.programowanieaplickacjiwebowychimobilnych.data.Customer;
+import com.example.programowanieaplickacjiwebowychimobilnych.data.entity.Customer;
 import org.springframework.data.domain.Page;
 
 public interface CustomerUseCase {

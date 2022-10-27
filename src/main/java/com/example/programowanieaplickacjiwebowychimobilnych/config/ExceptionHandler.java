@@ -9,7 +9,8 @@ import org.springframework.web.bind.annotation.RestControllerAdvice;
 
 @Slf4j
 @RestControllerAdvice
-public class ExceptionHandler {
+public class
+ExceptionHandler {
 	@org.springframework.web.bind.annotation.ExceptionHandler(ParametrizedException.class)
 	public ResponseEntity<ErrorResponse> handleMobileCashDeskException(ParametrizedException parametrizedException) {
 		return ResponseEntity.status(parametrizedException.getStatus())
@@ -21,7 +22,7 @@ public class ExceptionHandler {
 
 	@Data
 	@Builder
-		public static class ErrorResponse {
+	public static class ErrorResponse {
 
 		private String message;
 		private String code;

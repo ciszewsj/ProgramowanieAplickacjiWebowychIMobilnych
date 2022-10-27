@@ -1,6 +1,9 @@
 package com.example.programowanieaplickacjiwebowychimobilnych.usecase;
 
-import com.example.programowanieaplickacjiwebowychimobilnych.data.*;
+import com.example.programowanieaplickacjiwebowychimobilnych.data.entity.Address;
+import com.example.programowanieaplickacjiwebowychimobilnych.data.entity.Customer;
+import com.example.programowanieaplickacjiwebowychimobilnych.data.entity.Parcel;
+import com.example.programowanieaplickacjiwebowychimobilnych.data.entity.Recipient;
 import org.springframework.data.domain.Page;
 
 public interface ParcelUseCase {

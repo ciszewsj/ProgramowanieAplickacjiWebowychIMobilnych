@@ -1,9 +1,9 @@
 package com.example.programowanieaplickacjiwebowychimobilnych.services;
 
-import com.example.programowanieaplickacjiwebowychimobilnych.data.Address;
-import com.example.programowanieaplickacjiwebowychimobilnych.data.Customer;
-import com.example.programowanieaplickacjiwebowychimobilnych.data.Parcel;
-import com.example.programowanieaplickacjiwebowychimobilnych.data.Recipient;
+import com.example.programowanieaplickacjiwebowychimobilnych.data.entity.Address;
+import com.example.programowanieaplickacjiwebowychimobilnych.data.entity.Customer;
+import com.example.programowanieaplickacjiwebowychimobilnych.data.entity.Parcel;
+import com.example.programowanieaplickacjiwebowychimobilnych.data.entity.Recipient;
 import com.example.programowanieaplickacjiwebowychimobilnych.repositories.ParcelRepository;
 import com.example.programowanieaplickacjiwebowychimobilnych.usecase.ParcelUseCase;
 import lombok.RequiredArgsConstructor;

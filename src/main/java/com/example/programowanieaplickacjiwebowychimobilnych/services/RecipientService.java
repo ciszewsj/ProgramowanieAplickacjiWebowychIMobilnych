@@ -1,6 +1,6 @@
 package com.example.programowanieaplickacjiwebowychimobilnych.services;
 
-import com.example.programowanieaplickacjiwebowychimobilnych.data.Recipient;
+import com.example.programowanieaplickacjiwebowychimobilnych.data.entity.Recipient;
 import com.example.programowanieaplickacjiwebowychimobilnych.repositories.RecipientRepository;
 import com.example.programowanieaplickacjiwebowychimobilnych.usecase.RecipientUseCase;
 import lombok.RequiredArgsConstructor;

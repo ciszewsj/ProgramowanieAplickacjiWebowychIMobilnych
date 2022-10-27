@@ -1,6 +1,6 @@
 package com.example.programowanieaplickacjiwebowychimobilnych.services;
 
-import com.example.programowanieaplickacjiwebowychimobilnych.data.Customer;
+import com.example.programowanieaplickacjiwebowychimobilnych.data.entity.Customer;
 import com.example.programowanieaplickacjiwebowychimobilnych.usecase.CustomerUseCase;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;

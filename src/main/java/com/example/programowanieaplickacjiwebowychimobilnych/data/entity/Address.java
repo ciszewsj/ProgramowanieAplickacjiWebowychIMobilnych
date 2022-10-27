@@ -1,4 +1,4 @@
-package com.example.programowanieaplickacjiwebowychimobilnych.data;
+package com.example.programowanieaplickacjiwebowychimobilnych.data.entity;
 
 import lombok.Getter;
 import lombok.Setter;
