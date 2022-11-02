@@ -5,8 +5,8 @@ import com.example.programowanieaplickacjiwebowychimobilnych.data.entity.ParcelS
 import org.springframework.data.domain.Page;
 
 public interface AdminUseCase {
-	Page<Parcel> getParcels();
+    Page<Parcel> getParcels();
 
-	void changeParcelStatus(Long parcelId, ParcelStatus parcelStatus, Long userId);
+    void changeParcelStatus(Long parcelId, ParcelStatus parcelStatus);
 
 }

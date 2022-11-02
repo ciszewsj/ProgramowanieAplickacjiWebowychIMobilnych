@@ -15,12 +15,16 @@ public class Customer implements UserDetails {
 	private Long id;
 
 	@Column(unique = true)
-	public String name;
+	private String name;
 
-	public String password;
+	private String password;
+
+	private String email;
+
+	private String phone;
 
 	@OneToOne
-	public Address address;
+	private Address address;
 
 
 	@Override

@@ -15,14 +15,14 @@ public class Address {
 	private Long id;
 
 	@NotBlank
-	public String postCode;
+	private String postCode;
 
 	@NotBlank
-	public String city;
+	private String city;
 
-	public String street;
+	private String street;
 
 	@NotBlank
-	public String houseNumber;
+	private String houseNumber;
 
 }
