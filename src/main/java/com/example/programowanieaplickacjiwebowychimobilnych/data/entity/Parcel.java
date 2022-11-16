@@ -1,34 +1,42 @@
 package com.example.programowanieaplickacjiwebowychimobilnych.data.entity;
 
 
-import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
 @Entity
-@Data
+@Getter
+@Setter
 public class Parcel {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
 
-	public final Date creationDate;
+	public Date sendDate;
 
 	@OneToOne
-	public Customer sender;
+	private Customer sender;
 
 	@OneToOne
-	public Recipient recipient;
-
-	@OneToOne
-	public Address address;
+	private Recipient recipient;
 
 	@OneToMany
-	public List<ParcelStatus> parcelStatus;
+	private List<ParcelStatus> parcelStatus;
 
-	public Parcel() {
-		creationDate = new Date();
+	@OneToOne
+	private Address address;
+
+	public Parcel(ParcelStatus parcelStatus) {
+		this.parcelStatus = new ArrayList<>();
+		this.parcelStatus.add(parcelStatus);
+	}
+
+	public void submitParcel() {
+		sendDate = new Date();
 	}
 }

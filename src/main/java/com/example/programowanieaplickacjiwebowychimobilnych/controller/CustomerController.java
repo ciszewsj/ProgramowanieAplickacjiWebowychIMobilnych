@@ -10,22 +10,23 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("/api/customer")
+@RequestMapping("/api")
 @Slf4j
 @RequiredArgsConstructor
+@CrossOrigin
 public class CustomerController {
 
 
-    private final CustomerUseCase customerUseCase;
+	private final CustomerUseCase customerUseCase;
 
-    @PostMapping(value = "/login")
-    public LoginResponse createAuthenticationToken(@RequestBody LoginRequest request)
-            throws Exception {
-        return customerUseCase.loginCustomer(request);
-    }
+	@PostMapping(value = "/login")
+	public LoginResponse createAuthenticationToken(@RequestBody LoginRequest request)
+			throws Exception {
+		return customerUseCase.loginCustomer(request);
+	}
 
-    @PostMapping("/register")
-    public void registerCustomer(@RequestBody RegisterRequest request) {
-        customerUseCase.createCustomer(request);
-    }
+	@PostMapping("/register")
+	public void registerCustomer(@RequestBody RegisterRequest request) {
+		customerUseCase.createCustomer(request);
+	}
 }

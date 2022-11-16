@@ -11,21 +11,28 @@ import org.springframework.data.querydsl.QPageRequest;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.List;
+
 @Service
 @RequiredArgsConstructor
 @Transactional
 @Slf4j
 public class AdminService implements AdminUseCase {
-    private final ParcelRepository parcelRepository;
+	private final ParcelRepository parcelRepository;
 
-    @Override
-    public Page<Parcel> getParcels() {
-        Pageable pageRequest = PageRequest.of(1, 12);
-        return parcelRepository.findAll(pageRequest);
-    }
+	@Override
+	public List<Parcel> getParcels() {
+		Pageable pageRequest = PageRequest.of(1, 12);
+		return parcelRepository.findAll(pageRequest).getContent();
+	}
 
-    @Override
-    public void changeParcelStatus(Long parcelId, ParcelStatus parcelStatus) {
+	@Override
+	public Parcel getParcel(Long parcelId) {
+		return null;
+	}
 
-    }
+	@Override
+	public void changeParcelStatus(Long parcelId, ParcelStatus parcelStatus) {
+
+	}
 }

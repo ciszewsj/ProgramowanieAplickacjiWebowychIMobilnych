@@ -43,9 +43,10 @@ public class CustomerService implements CustomerUseCase {
 		for (Customer c : customerRepository.findAll()) {
 			log.error(c.toString());
 		}
+		log.error(request.toString());
 		UserDetails userDetails = customerRepository.findByName(request.getUsername()).orElse(null);
 		String token = jwtTokenUtil.generateToken(userDetails);
-		return new LoginResponse(token);
+		return new LoginResponse(token, "");
 	}
 
 	private void authenticate(String username, String password) throws Exception {
@@ -66,40 +67,19 @@ public class CustomerService implements CustomerUseCase {
 	@Override
 	public void createCustomer(RegisterRequest request) {
 		Address address = new Address();
-		address.setCity(request.getCity());
-		address.setStreet(request.getStreet());
-		address.setHouseNumber(request.getHouseNumber());
-		address.setPostCode(request.getPostCode());
+		address.setCity(request.getAddress().getCity());
+		address.setStreet(request.getAddress().getStreet());
+		address.setHouseNumber(request.getAddress().getHouseNumber());
+		address.setPostCode(request.getAddress().getPostCode());
 		address = addressRepository.save(address);
-		log.error(request.toString());
+
 		Customer customer = new Customer();
 		customer.setAddress(address);
 		customer.setName(request.getName());
 		customer.setEmail(request.getEmail());
-		log.error(request.getPassword());
+
 		customer.setPassword(passwordEncoder.encode(request.getPassword()));
-		customer.setPhone(request.getPhone());
-		Customer c = customerRepository.save(customer);
-		log.error(c.toString());
-	}
+		customerRepository.save(customer);
 
-	@Override
-	public void changeCustomerData(Customer customer) {
-
-	}
-
-	@Override
-	public void deleteCustomer(Customer customer) {
-
-	}
-
-	@Override
-	public void changePassword(Customer customer) {
-
-	}
-
-	@Override
-	public Page<Customer> getCustomers() {
-		return null;
 	}
 }

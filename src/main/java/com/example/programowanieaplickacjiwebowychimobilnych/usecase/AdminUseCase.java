@@ -4,9 +4,13 @@ import com.example.programowanieaplickacjiwebowychimobilnych.data.entity.Parcel;
 import com.example.programowanieaplickacjiwebowychimobilnych.data.entity.ParcelStatus;
 import org.springframework.data.domain.Page;
 
-public interface AdminUseCase {
-    Page<Parcel> getParcels();
+import java.util.List;
 
-    void changeParcelStatus(Long parcelId, ParcelStatus parcelStatus);
+public interface AdminUseCase {
+	List<Parcel> getParcels();
+
+	Parcel getParcel(Long parcelId);
+
+	void changeParcelStatus(Long parcelId, ParcelStatus parcelStatus);
 
 }

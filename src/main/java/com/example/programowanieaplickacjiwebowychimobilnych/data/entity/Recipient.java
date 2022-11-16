@@ -1,19 +1,29 @@
 package com.example.programowanieaplickacjiwebowychimobilnych.data.entity;
 
 import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
+import org.hibernate.validator.constraints.Length;
 
 import javax.persistence.*;
+import javax.validation.constraints.Email;
+import javax.validation.constraints.NotBlank;
 
 @Entity
-@Data
+@Getter
+@Setter
 public class Recipient {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
 
-	public String name;
+	@Column(unique = true)
+	@NotBlank
+	@Length(min = 4, max = 50)
+	private String name;
 
-	public String email;
-
-	public String phone;
+	@Email
+	@NotBlank
+	@Length(min = 4, max = 50)
+	private String email;
 }

@@ -4,15 +4,16 @@ import lombok.Data;
 import org.hibernate.validator.constraints.Length;
 
 import javax.validation.constraints.Email;
+import javax.validation.constraints.NotBlank;
 
 @Data
-public class RegisterRequest {
-	@Length(min = 6, max = 32)
+public class RecipientInformationRequest {
+	@NotBlank
+	@Length(min = 4, max = 50)
 	private String name;
-	@Length(min = 6, max = 32)
-	private String password;
-	@Email
-	private String email;
 
-	private AddressInformationRequest address;
+	@Email
+	@NotBlank
+	@Length(min = 4, max = 50)
+	private String email;
 }

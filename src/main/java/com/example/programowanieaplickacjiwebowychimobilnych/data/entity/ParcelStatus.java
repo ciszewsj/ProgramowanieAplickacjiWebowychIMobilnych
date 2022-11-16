@@ -14,14 +14,29 @@ public class ParcelStatus {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
 
-	public Status status;
+	private Status status;
 
-	public Date date;
+	private Date date = new Date();
 
 	@OneToOne
-	public Address address;
+	private Address address;
+
+	public ParcelStatus(Status status) {
+		this.status = status;
+	}
+
+	public ParcelStatus(Address address) {
+		this.status = Status.NOT_SENT;
+		this.address = address;
+	}
+
+	public ParcelStatus(Status status, Address address) {
+		this.status = status;
+		this.address = address;
+	}
 
 	enum Status {
-		NEW, RECEIVED, ROUTE, READY, DELIVERED
+		NOT_SENT, NEW, RECEIVED, ROUTE, READY, DELIVERED
 	}
+
 }
