@@ -1,13 +1,13 @@
 import {useState} from "react";
 import {useContext} from "react";
 import {UserContext} from "../index";
-import {CreateParcelRequest} from "../request/createparcelrequest";
+import {CreateParcelRequest} from "../request/parcel/createparcelrequest";
+import {Navigate} from "react-router-dom";
 
 export default function CreateParcelSite() {
-    const {session} = useContext(UserContext)
     const [fields, setFields] = useState({});
     const [errorFields, setErrorFields] = useState({});
-    const [error, setError] = useState({});
+    const [error, setError] = useState({errorCode: "", errorMessage: "", createdParcelId: 0});
 
     const createRequest = () => {
         console.log(fields)
@@ -25,6 +25,9 @@ export default function CreateParcelSite() {
                             fields.name = e.target.value;
                             return fields;
                         })}/>
+                        {errorFields.name &&
+                            <><span className="error text-danger">{errorFields.name}</span><br/></>}
+
 
                         <label htmlFor="email">Email address</label>
                         <input type="email" className="form-control" id="email" aria-describedby="emailHelp"
@@ -32,15 +35,17 @@ export default function CreateParcelSite() {
                             fields.email = e.target.value;
                             return fields;
                         })}/>
-                    </div>
+                        {errorFields.email &&
+                            <><span className="error text-danger">{errorFields.email}</span><br/></>}
 
-                    <div className="form-group">
                         <label htmlFor="postCode">Post code</label>
                         <input type="text" className="form-control" id="postCode" aria-describedby="postCodeHelp"
                                placeholder="Post code" onChange={e => setFields(() => {
                             fields.postCode = e.target.value;
                             return fields;
                         })}/>
+                        {errorFields.postCode &&
+                            <><span className="error text-danger">{errorFields.postCode}</span><br/></>}
 
                         <label htmlFor="city">City</label>
                         <input type="text" className="form-control" id="city" aria-describedby="emailHelp"
@@ -48,6 +53,8 @@ export default function CreateParcelSite() {
                             fields.city = e.target.value;
                             return fields;
                         })}/>
+                        {errorFields.city &&
+                            <><span className="error text-danger">{errorFields.city}</span><br/></>}
 
                         <label htmlFor="street">Street</label>
                         <input type="text" className="form-control" id="street" aria-describedby="streetHelp"
@@ -55,6 +62,8 @@ export default function CreateParcelSite() {
                             fields.street = e.target.value;
                             return fields;
                         })}/>
+                        {errorFields.street &&
+                            <><span className="error text-danger">{errorFields.street}</span><br/></>}
 
                         <label htmlFor="houseNumber">House number</label>
                         <input type="text" className="form-control" id="houseNumber"
@@ -63,6 +72,8 @@ export default function CreateParcelSite() {
                             fields.houseNumber = e.target.value;
                             return fields;
                         })}/>
+                        {errorFields.houseNumber &&
+                            <><span className="error text-danger">{errorFields.houseNumber}</span><br/></>}
 
                     </div>
                     <button type="button" className="btn btn-primary" onClick={createRequest}>Submit</button>
@@ -71,5 +82,11 @@ export default function CreateParcelSite() {
         )
     }
 
-    return Navigation();
+    if (error.errorCode !== 200 && error.errorCode !== 201) {
+        return Navigation();
+    } else {
+        console.log(123)
+        let path = "/parcel/" + error.createdParcelId;
+        return (<Navigate to={path}/>);
+    }
 }

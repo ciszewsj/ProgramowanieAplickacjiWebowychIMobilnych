@@ -1,21 +1,65 @@
-import {Container} from "react-bootstrap";
+import {Container, Table} from "react-bootstrap";
 
 export default function ParcelSite() {
     function Site() {
         return (
             <Container className="p-3 m-auto">
-                <form>
-                    <div className="form-group">
-                        <label htmlFor="name">Email address</label>
-                        <input type="text" className="form-control" id="name" aria-describedby="emailHelp"
-                               placeholder="Enter name"/>
+                <h1>Parcel</h1>
+                <Container className="p-3 m-auto">
+                    <div className="row">
+                        <div className="col">
+                            <h5>Parcel id:</h5>
+                        </div>
+                        <div className="col">
+                            <p>{123}</p>
+                        </div>
                     </div>
-                    <div className="form-group">
-                        <label htmlFor="password">Password</label>
-                        <input type="password" className="form-control" id="password" placeholder="Password"/>
+                    <div className="row">
+
+                        <div className="col">
+                            <h5>Recipient name:</h5>
+                        </div>
+                        <div className="col">
+                            <p>{123}</p>
+                        </div>
                     </div>
-                    <button type="submit" className="btn btn-primary">Submit</button>
-                </form>
+                    <div className="row">
+
+                        <div className="col">
+                            <h5>Recipient email:</h5>
+                        </div>
+                        <div className="col">
+                            <p>{123}</p>
+                        </div>
+                    </div>
+                    <div className="row">
+
+                        <div className="col">
+                            <h5>Actual status:</h5>
+                        </div>
+                        <div className="col">
+                            <p>{123}</p>
+                        </div>
+                    </div>
+                    <div className="row">
+                        <div className="col">
+                            <h5>Send:</h5>
+                        </div>
+                        <div className="col">
+                            <p>{123}</p>
+                        </div>
+                    </div>
+                </Container>
+                <Table responsive={"md"} striped={true} border={1} variant={"light"}>
+                    <thead>
+                    <tr>
+                        <th>Status</th>
+                        <th>Date</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    </tbody>
+                </Table>
             </Container>
         )
     }

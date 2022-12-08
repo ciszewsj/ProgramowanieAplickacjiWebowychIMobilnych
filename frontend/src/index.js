@@ -3,7 +3,6 @@ import React, {useState, useContext} from "react"
 import ReactDOM from 'react-dom/client';
 import reportWebVitals from './help/reportWebVitals';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import ja from './components/ja.jpg';
 import {BrowserRouter, Route, Routes} from "react-router-dom";
 import AppNavigation from "./components/navbar";
 import MainSite from "./sites/main";
@@ -15,8 +14,6 @@ import ParcelSite from "./sites/parcel";
 import MyParcelSite from "./sites/myparcel";
 import {getSession} from "./controllers/sessioncontroller";
 import {LogoutSite} from "./sites/logout";
-import {Col, Container, Image, ListGroup, ListGroupItem, Row} from "react-bootstrap";
-import {Github, Linkedin, Mailbox, Map, Telephone} from "react-bootstrap-icons";
 
 export const UserContext = React.createContext({});
 

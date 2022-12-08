@@ -2,7 +2,7 @@ import {useContext, useEffect} from "react";
 import {UserContext} from "../index";
 import {Navigate} from "react-router-dom";
 import {useState} from "react";
-import {RegisterRequest} from "../request/registerrequest";
+import {RegisterRequest} from "../request/authentication/registerrequest";
 
 export default function RegisterSite() {
     const {session} = useContext(UserContext)
@@ -67,44 +67,6 @@ export default function RegisterSite() {
                         })}/>
                         {errorFields.repeatPassword &&
                             <><span className="error text-danger">{errorFields.repeatPassword}</span><br/></>}
-
-                        <label htmlFor="postCode">Post code</label>
-                        <input type="text" className="form-control" id="postCode" aria-describedby="postCodeHelp"
-                               placeholder="Enter post code" onChange={e => setFields(() => {
-                            fields.postCode = e.target.value;
-                            return fields;
-                        })}
-                        />
-                        {errorFields.postCode &&
-                            <><span className="error text-danger">{errorFields.postCode}</span><br/></>}
-
-                        <label htmlFor="city">City</label>
-                        <input type="text" className="form-control" id="city" aria-describedby="cityHelp"
-                               placeholder="Enter city name" onChange={e => setFields(() => {
-                            fields.city = e.target.value;
-                            return fields;
-                        })}/>
-                        {errorFields.city &&
-                            <><span className="error text-danger">{errorFields.city}</span><br/></>}
-
-                        <label htmlFor="street">Street</label>
-                        <input type="text" className="form-control" id="street" aria-describedby="streetHelp"
-                               placeholder="Enter street name" onChange={e => setFields(() => {
-                            fields.street = e.target.value;
-                            return fields;
-                        })}/>
-                        {errorFields.street &&
-                            <><span className="error text-danger">{errorFields.street}</span><br/></>}
-
-                        <label htmlFor="houseNumber">House number</label>
-                        <input type="text" className="form-control" id="houseNumber"
-                               aria-describedby="houseHelp"
-                               placeholder="Enter House number" onChange={e => setFields(() => {
-                            fields.houseNumber = e.target.value;
-                            return fields;
-                        })}/>
-                        {errorFields.houseNumber &&
-                            <><span className="error text-danger">{errorFields.houseNumber}</span><br/></>}
 
                     </div>
                     <button type="button" className="btn btn-primary" onClick={requestRegister}>Submit</button>

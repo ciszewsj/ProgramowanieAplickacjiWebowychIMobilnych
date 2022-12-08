@@ -1,4 +1,4 @@
-import {addSession, getSession} from "../controllers/sessioncontroller";
+import {addSession, getSession} from "../../controllers/sessioncontroller";
 
 export let LoginRequest = (setState, setError, login, password) => {
     fetch('http://localhost:8080/api/customer/login',
