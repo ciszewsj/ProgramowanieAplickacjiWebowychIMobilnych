@@ -20,7 +20,7 @@ export default function AppNavigation() {
                             <NavLink className={"nav-item nav-link"} id="nav-my-parcels" to="/my_parcels">My
                                 parcels</NavLink>
                         }
-                        {session.role === "Admin" &&
+                        {session.role === "ROLE_admin" &&
                             <NavLink className={"nav-item nav-link"} to="/admin">Admin</NavLink>}
                     </Nav>
                     <Nav>

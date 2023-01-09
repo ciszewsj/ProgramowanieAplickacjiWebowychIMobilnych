@@ -22,7 +22,6 @@ export let RegisterRequest = (fields, setErrorFields, setError) => {
         }
     )
         .then(response => {
-            console.log(response);
             let newError = () => {
                 let error = {};
                 error.status = response.status;
@@ -34,11 +33,9 @@ export let RegisterRequest = (fields, setErrorFields, setError) => {
                     json => {
                         setErrorFields(() => {
                             let errorFields = {}
-                            console.log(json)
                             for (let object in json) {
                                 errorFields[json[object].field] = json[object].defaultMessage;
                             }
-                            console.log(errorFields);
                             return errorFields;
                         })
                     }
@@ -46,7 +43,6 @@ export let RegisterRequest = (fields, setErrorFields, setError) => {
             } else {
                 response.json().then(
                     json => {
-                        console.log(json);
                         setError(response.status + " " + JSON.stringify(json));
                     }
                 )
@@ -56,7 +52,6 @@ export let RegisterRequest = (fields, setErrorFields, setError) => {
             })
         })
         .catch(e => {
-            console.log(e.toString());
             setError(e.toString());
         });
 }

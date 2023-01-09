@@ -35,7 +35,6 @@ export let LoginRequest = (setState, setError, login, password) => {
             }
         })
         .catch(e => {
-            console.log(e.toString());
             setError(e.toString());
         });
 }

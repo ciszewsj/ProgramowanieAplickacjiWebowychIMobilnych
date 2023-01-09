@@ -28,7 +28,6 @@ export let CreateParcelRequest = (fields, setErrorFields, setError) => {
             if (response.status === 200) {
                 response.json().then(
                     js => {
-                        console.log(js)
                         let err = {errorCode: response.status, errorMessage: "", createdParcelId: js.id};
                         setError(err);
                     }
@@ -37,16 +36,13 @@ export let CreateParcelRequest = (fields, setErrorFields, setError) => {
                 response.json().then(json => {
                     setErrorFields(() => {
                         let errorFields = {}
-                        console.log(json)
                         for (let object in json) {
                             errorFields[json[object].field] = json[object].defaultMessage;
                         }
-                        console.log(errorFields);
                         return errorFields;
                     })
                 });
             } else {
-                console.log(response)
                 setError(...{errorCode: response.status, errorMessage: JSON.stringify(response), createdParcelId: 0})
             }
         })

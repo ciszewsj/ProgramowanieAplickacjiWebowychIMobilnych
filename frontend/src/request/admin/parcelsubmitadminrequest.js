@@ -20,12 +20,8 @@ export let changeParcelStatus = (parcelId, parcelStatus, setError) => {
     )
         .then(response => {
             if (response.status === 200) {
-                console.log("W123?")
-
                 setError(...200);
             } else {
-                console.log("W?")
-
                 setError(...400);
             }
         })

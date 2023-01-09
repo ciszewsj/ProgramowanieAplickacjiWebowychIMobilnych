@@ -1,7 +1,7 @@
 import {Container, Pagination, Table} from "react-bootstrap";
 import {useEffect, useState} from "react";
 import {parcelsPageRequest} from "../request/admin/parceladminpagerequest";
-import {Navigate, useNavigate} from "react-router-dom";
+import {Navigate} from "react-router-dom";
 
 function AppTest({parcel}) {
     return (<tr>
@@ -16,7 +16,6 @@ function AppTest({parcel}) {
 }
 
 export const Admin = () => {
-    const navigate = useNavigate();
 
     const [parcels, setParcels] = useState(null)
     const [error, setError] = useState(null)

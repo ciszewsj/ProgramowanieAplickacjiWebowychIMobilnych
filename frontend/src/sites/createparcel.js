@@ -10,7 +10,6 @@ export default function CreateParcelSite() {
     const [error, setError] = useState({errorCode: "", errorMessage: "", createdParcelId: 0});
 
     const createRequest = () => {
-        console.log(fields)
         CreateParcelRequest(fields, setErrorFields, setError);
     }
 
@@ -85,7 +84,6 @@ export default function CreateParcelSite() {
     if (error.errorCode !== 200 && error.errorCode !== 201) {
         return Navigation();
     } else {
-        console.log(123)
         let path = "/parcel/" + error.createdParcelId;
         return (<Navigate to={path}/>);
     }

@@ -22,7 +22,6 @@ export const removeSession = () => {
 
 export const getSession = () => {
     let session = JSON.parse(localStorage.getItem("Session"));
-    console.log(session)
     if (session === undefined || session === null) {
         removeSession();
         getSession();

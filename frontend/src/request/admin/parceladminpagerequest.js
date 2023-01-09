@@ -2,7 +2,7 @@ import {getSession} from "../../controllers/sessioncontroller";
 
 export let parcelsPageRequest = (setParcels, setError) => {
 
-    fetch('http://localhost:8080/api/admin/parcel',
+    fetch('http://localhost:8080/api/admin/parcels',
         {
             "mode": "cors",
             "method": "GET",
@@ -19,7 +19,7 @@ export let parcelsPageRequest = (setParcels, setError) => {
                 response.json().then(json => {
                     setParcels(json)
                 });
-                setError(...null);
+                setError(null);
             } else {
                 setError(() => {
                     return {
@@ -30,7 +30,6 @@ export let parcelsPageRequest = (setParcels, setError) => {
             }
         })
         .catch(e => {
-            console.log("ERROR")
             setError(e.toString());
         });
 }

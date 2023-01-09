@@ -15,19 +15,16 @@ export let parcelRequest = (id, setParcel, setError) => {
         .then(response => {
             if (response.status === 200) {
                 response.json().then(json => {
-                    console.log(json);
                     setParcel(json);
                     let err = {code: 200, message: json.message}
                     setError(err)
                 });
             } else if (response.status === 409) {
                 response.json().then(json => {
-                    console.log(json);
                     let err = {code: 409, message: json.message}
                     setError(err)
                 })
             } else {
-                console.log(response.status)
                 setError(() => {
                     return {
                         status: 400,
