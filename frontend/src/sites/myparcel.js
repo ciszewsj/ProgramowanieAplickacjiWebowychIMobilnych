@@ -1,33 +1,47 @@
 import {Container, Table} from "react-bootstrap";
-import {useState} from "react";
+import {useState, useEffect} from "react";
+import {parcelsPageRequest} from "../request/parcel/parcelpagerequest";
+import {useNavigate} from 'react-router-dom';
 
 export default function MyParcelSite() {
+    const navigate = useNavigate();
+
     function AppTest({parcel}) {
         return (<tr>
             <th scope="row">{parcel.id}</th>
-            <td>{parcel.name}</td>
-            <td>Otto</td>
-            <td>@mdo</td>
+            <td>{parcel.recipient}</td>
+            <td>{parcel.parcelStatus.at(-1).status}</td>
             <td>
-                <button className="btn btn-primary">Submit</button>
+                <button className="btn btn-primary" onClick={() => {
+                    navigate('/parcel/' + parcel.id);
+
+                }}>Go to parcel
+                </button>
             </td>
         </tr>)
     }
 
     function Site() {
-        const [parcels, setParcels] = useState(null)
+        const [parcels, setParcels] = useState(null);
+        let [error, setError] = useState();
+
+        useEffect(() => {
+            parcelsPageRequest(setParcels, setError);
+        }, []);
+
 
         return (
             <Container className="p-3 m-auto">
+                <h1>My parcels list</h1>
                 <div className="home">
                     <Container className="p-4 m-auto">
                         <Table responsive={"md"} striped={true} border={1} variant={"light"}>
                             <thead>
                             <tr>
-                                <th>Name</th>
-                                <th>Created</th>
+                                <th>Id</th>
+                                <th>Recipient</th>
                                 <th>Actual status</th>
-                                <th>Open</th>
+                                <th>Go to</th>
                             </tr>
                             </thead>
                             <tbody>
@@ -35,6 +49,7 @@ export default function MyParcelSite() {
                             </tbody>
                         </Table>
                     </Container>
+                    {error !== {} && <span className="error text-danger">{error}</span>}
                 </div>
             </Container>
         )

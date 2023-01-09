@@ -1,7 +1,7 @@
 import {getSession} from "../../controllers/sessioncontroller";
 
-export let GetMyParcelRequest = (setParcels, setPagination, setError) => {
-    fetch('http://localhost:8080/api/parcel',
+export let parcelRequest = (id, setParcel, setError) => {
+    fetch('http://localhost:8080/api/parcel/' + id,
         {
             "mode": "cors",
             "method": "GET",
@@ -16,15 +16,18 @@ export let GetMyParcelRequest = (setParcels, setPagination, setError) => {
             if (response.status === 200) {
                 response.json().then(json => {
                     console.log(json);
-                    setParcels(json.content);
-                    setPagination(() => {
-                        let pag = {};
-                        pag.number = json.number;
-                        pag.totalPages = json.totalPages;
-                        return pag;
-                    })
+                    setParcel(json);
+                    let err = {code: 200, message: json.message}
+                    setError(err)
                 });
+            } else if (response.status === 409) {
+                response.json().then(json => {
+                    console.log(json);
+                    let err = {code: 409, message: json.message}
+                    setError(err)
+                })
             } else {
+                console.log(response.status)
                 setError(() => {
                     return {
                         status: 400,
@@ -35,5 +38,11 @@ export let GetMyParcelRequest = (setParcels, setPagination, setError) => {
         })
         .catch(e => {
             setError(e.toString());
-        });
+            setError(() => {
+                return {
+                    status: 400,
+                    message: e.toString()
+                };
+            });
+        })
 }

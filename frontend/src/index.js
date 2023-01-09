@@ -14,17 +14,11 @@ import ParcelSite from "./sites/parcel";
 import MyParcelSite from "./sites/myparcel";
 import {getSession} from "./controllers/sessioncontroller";
 import {LogoutSite} from "./sites/logout";
+import Error from "./sites/Error";
 
 export const UserContext = React.createContext({});
 
-function Error() {
-    return (
-        <h1>
-            404 Not Found
-        </h1>)
 
-
-}
 
 const App = () => {
     const [session, setSession] = useState(getSession())
@@ -37,7 +31,7 @@ const App = () => {
                 <AppNavigation/>
                 <Routes>
                     <Route path="/" element={<MainSite/>}/>
-                    <Route path="/parcel/*" element={<ParcelSite/>}/>
+                    <Route path="/parcel/:id" element={<ParcelSite/>}/>
                     <Route path="/my_parcels" element={<MyParcelSite/>}/>
                     <Route path="/admin" element={<Home/>}/>
                     <Route path="/register" element={<RegisterSite/>}/>
