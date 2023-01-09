@@ -7,6 +7,8 @@ export const addSession = (token) => {
     try {
         let decoded = jwt_decode(token);
         name = decoded.sub;
+        role = decoded.role;
+
     } catch {
         token = "";
 
@@ -20,6 +22,7 @@ export const removeSession = () => {
 
 export const getSession = () => {
     let session = JSON.parse(localStorage.getItem("Session"));
+    console.log(session)
     if (session === undefined || session === null) {
         removeSession();
         getSession();

@@ -6,7 +6,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import {BrowserRouter, Route, Routes} from "react-router-dom";
 import AppNavigation from "./components/navbar";
 import MainSite from "./sites/main";
-import {Home} from "./sites/admin";
+import {Admin} from "./sites/admin";
 import RegisterSite from "./sites/register";
 import LoginSite from "./sites/login";
 import CreateParcelSite from "./sites/createparcel";
@@ -33,7 +33,7 @@ const App = () => {
                     <Route path="/" element={<MainSite/>}/>
                     <Route path="/parcel/:id" element={<ParcelSite/>}/>
                     <Route path="/my_parcels" element={<MyParcelSite/>}/>
-                    <Route path="/admin" element={<Home/>}/>
+                    <Route path="/admin" element={<Admin/>}/>
                     <Route path="/register" element={<RegisterSite/>}/>
                     <Route path="/login" element={<LoginSite/>}/>
                     <Route path="/logout" element={<LogoutSite/>}/>

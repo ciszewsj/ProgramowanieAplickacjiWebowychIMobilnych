@@ -1,26 +1,35 @@
-import {Container, Table} from "react-bootstrap";
+import {Button, Container, Table} from "react-bootstrap";
 import {useEffect, useState} from "react";
 import {useParams} from "react-router-dom";
 import {parcelRequest} from "../request/parcel/parcelrequest";
 import React from "react";
 import Error from "./Error";
+import {getSession} from "../controllers/sessioncontroller";
+import {changeParcelStatus} from "../request/admin/parcelsubmitadminrequest";
+import {useNavigate} from "react-router-dom";
 
 export default function ParcelSite() {
+    const navigate = useNavigate();
 
     let [info, setInfo] = useState({});
     let [error, setError] = useState({code: 0, message: "Not Load"});
+    let [errorSubmit, setErrorSubmit] = useState();
     let {id} = useParams();
+    let username = getSession().name;
+    let role = getSession().role;
+    const refreshPage = () => {
+        navigate(0);
+    }
 
     useEffect(() => {
-        console.log(id)
         parcelRequest(id, setInfo, setError);
-    }, []);
+    }, [errorSubmit]);
 
     function AppTest({stat}) {
-        console.log(stat)
         return (<tr>
             <td>{stat.status}</td>
-            <td>{stat.date}</td>
+            <td>{stat.date && stat.date.split("T")[0]}</td>
+            <td>{stat.date && stat.date.split("T")[1].split(".")[0]}</td>
         </tr>)
     }
 
@@ -41,36 +50,100 @@ export default function ParcelSite() {
                     <div className="row">
 
                         <div className="col">
-                            <h5>Recipient name:</h5>
+                            <h5>Sender name:</h5>
                         </div>
                         <div className="col">
-                            {info.recipient && info.recipient.name && <p>{info.recipient.name}</p>}
+                            {info.sender && <p>{info.sender}</p>}
                         </div>
                     </div>
                     <div className="row">
 
                         <div className="col">
-                            <h5>Recipient email:</h5>
+                            <h5>Recipient name:</h5>
                         </div>
                         <div className="col">
-                            {info.recipient && info.recipient.email &&
-                                <p>{info.recipient.email}</p>}
+                            {info.recipient && <p>{info.recipient}</p>}
                         </div>
                     </div>
+                    {info.address &&
+                        <>
+                            <div className="row">
+                                <div className="col">
+                                    <h5>Address:</h5>
+                                </div>
+                            </div>
+                            <div className="row">
+                                <div className="col">
+                                    <h5>Post code:</h5>
+                                </div>
+                                <div className="col">
+                                    {info.address.postCode && <p>{info.address.postCode}</p>}
+                                </div>
+                            </div>
+                            <div className="row">
+                                <div className="col">
+                                    <h5>City:</h5>
+                                </div>
+                                <div className="col">
+                                    {info.address.city && <p>{info.address.city}</p>}
+                                </div>
+                            </div>
+                            <div className="row">
+                                <div className="col">
+                                    <h5>Street:</h5>
+                                </div>
+                                <div className="col">
+                                    {info.address.street && <p>{info.address.street}</p>}
+                                </div>
+                            </div>
+                            <div className="row">
+                                <div className="col">
+                                    <h5>House number:</h5>
+                                </div>
+                                <div className="col">
+                                    {info.address.houseNumber && <p>{info.address.houseNumber}</p>}
+                                </div>
+                            </div>
+                        </>
+
+                    }
                     <div className="row">
                         <div className="col">
                             <h5>Send:</h5>
                         </div>
                         <div className="col">
-                            {info.sendDate ? <p>{info.recipient.email}</p> : <p>PARCEL NOT SENT</p>}
+                            {!info.parcelStatus.at(-1).status !== "NOT SENT" ?
+                                <p>PARCEL NOT SENT</p> : <p>PARCEL SENT</p>}
                         </div>
                     </div>
+                    {role && role === "ROLE_admin" && <>
+                        {
+                            info.parcelStatus && info.parcelStatus.at(-1).status === "NOT_SENT" && info.sender === username &&
+                            <Button
+                                onClick={() => {
+                                    changeParcelStatus(info.id, "SENT", setErrorSubmit);
+
+                                }}
+                            >Send Package</Button>
+                        }
+                        {
+                            info.parcelStatus && info.parcelStatus.at(-1).status === "SENT" && info.sender === username &&
+                            <Button
+                                onClick={() => {
+                                    changeParcelStatus(info.id, "DELIVERED", setErrorSubmit);
+                                }}
+                            >Set Delivered</Button>
+                        }
+                    </>
+                    }
+
                 </Container>
                 <Table responsive={"md"} striped={true} border={1} variant={"light"}>
                     <thead>
                     <tr>
                         <th>Status</th>
                         <th>Date</th>
+                        <th>Time</th>
                     </tr>
                     </thead>
                     <tbody>

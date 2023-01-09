@@ -21,9 +21,10 @@ export default function MyParcelSite() {
         </tr>)
     }
 
+    let [error, setError] = useState();
+
     function Site() {
         const [parcels, setParcels] = useState(null);
-        let [error, setError] = useState();
 
         useEffect(() => {
             parcelsPageRequest(setParcels, setError);
@@ -49,11 +50,14 @@ export default function MyParcelSite() {
                             </tbody>
                         </Table>
                     </Container>
-                    {error !== {} && <span className="error text-danger">{error}</span>}
                 </div>
             </Container>
         )
     }
 
-    return Site();
+    if (!error) {
+        return Site();
+    } else {
+        navigate('/');
+    }
 }
