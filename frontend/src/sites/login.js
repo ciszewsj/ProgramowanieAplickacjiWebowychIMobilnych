@@ -32,7 +32,7 @@ export default function LoginSite() {
                         <label htmlFor="password">Password</label>
                         <input type="password" className="form-control" id="password" placeholder="Password"
                                onChange={e => setPassword(e.target.value)}/>
-                        {error && <span className="error text-danger">{error}</span>}
+                        {error && <span className="error text-danger">Could not login. Try again!</span>}
                     </div>
                     <button type="button" className="btn btn-primary" onClick={requestLogin}>
                         Submit

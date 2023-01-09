@@ -1,6 +1,8 @@
 package com.example.programowanieaplickacjiwebowychimobilnych.data.entity;
 
-import lombok.Data;
+import com.example.programowanieaplickacjiwebowychimobilnych.data.entity.serlializer.CustomerSerializer;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import lombok.Getter;
 import lombok.Setter;
 import org.hibernate.validator.constraints.Length;
@@ -14,10 +16,9 @@ import javax.validation.constraints.NotBlank;
 @Setter
 public class Recipient {
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 
-	@Column(unique = true)
 	@NotBlank
 	@Length(min = 4, max = 50)
 	private String name;

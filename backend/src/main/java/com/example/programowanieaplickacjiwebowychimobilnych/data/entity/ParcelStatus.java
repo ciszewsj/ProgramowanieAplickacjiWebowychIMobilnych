@@ -11,7 +11,7 @@ import java.util.Date;
 @Getter
 public class ParcelStatus {
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 
 	private Status status;
@@ -21,13 +21,12 @@ public class ParcelStatus {
 	@OneToOne
 	private Address address;
 
-	public ParcelStatus(Status status) {
-		this.status = status;
+	public ParcelStatus() {
+		this.status = Status.NOT_SENT;
 	}
 
-	public ParcelStatus(Address address) {
-		this.status = Status.NOT_SENT;
-		this.address = address;
+	public ParcelStatus(Status status) {
+		this.status = status;
 	}
 
 	public ParcelStatus(Status status, Address address) {
@@ -35,8 +34,8 @@ public class ParcelStatus {
 		this.address = address;
 	}
 
-	enum Status {
-		NOT_SENT, NEW, RECEIVED, ROUTE, READY, DELIVERED
+	public enum Status {
+		NOT_SENT, SENT, DELIVERED
 	}
 
 }

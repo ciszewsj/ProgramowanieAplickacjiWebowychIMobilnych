@@ -1,5 +1,6 @@
 package com.example.programowanieaplickacjiwebowychimobilnych.services;
 
+import com.example.programowanieaplickacjiwebowychimobilnych.config.ApplicationRoles;
 import com.example.programowanieaplickacjiwebowychimobilnych.data.entity.*;
 import com.example.programowanieaplickacjiwebowychimobilnych.data.request.CreateParcelRequest;
 import com.example.programowanieaplickacjiwebowychimobilnych.exception.ParametrizedException;
@@ -7,11 +8,11 @@ import com.example.programowanieaplickacjiwebowychimobilnych.repositories.*;
 import com.example.programowanieaplickacjiwebowychimobilnych.usecase.ParcelUseCase;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
+import java.util.function.Function;
 
 @Service
 @RequiredArgsConstructor
@@ -41,7 +42,7 @@ public class ParcelService implements ParcelUseCase {
 		recipient = recipientRepository.save(recipient);
 
 
-		ParcelStatus newParcelStatus = new ParcelStatus(customer.getAddress());
+		ParcelStatus newParcelStatus = new ParcelStatus();
 		newParcelStatus = parcelStatusRepository.save(newParcelStatus);
 
 		Parcel newParcel = new Parcel(newParcelStatus);
@@ -53,13 +54,21 @@ public class ParcelService implements ParcelUseCase {
 
 
 	@Override
-	public Parcel getParcel(Long parcelId, Long userId) {
-		return parcelRepository.findByIdAndSenderId(parcelId, userId).orElseThrow(new ParametrizedException("Not find parcel"));
+	public Parcel getParcel(Customer customer, Long parcelId) {
+		Parcel parcel = parcelRepository.findById(parcelId).orElseThrow(new ParametrizedException("Not find parcel"));
+		if (parcel.getParcelStatus().stream().map(ParcelStatus::getStatus).anyMatch(p -> p.equals(ParcelStatus.Status.SENT) || p.equals(ParcelStatus.Status.DELIVERED))) {
+			return parcel;
+		} else if (customer.getRoles().stream().map((Function<Role, Object>) Role::getAuthority).anyMatch(p -> p.equals(ApplicationRoles.ROLE_ADMIN))) {
+			return parcel;
+		} else if (parcel.getSender().getUsername().equals(customer.getUsername())) {
+			return parcel;
+		}
+		throw new ParametrizedException("Not find parcel");
 	}
 
 
 	@Override
 	public List<Parcel> getParcels(Long userId) {
-		return parcelRepository.findBySenderId(userId, Pageable.ofSize(12)).getContent();
+		return parcelRepository.findBySenderId(userId);
 	}
 }

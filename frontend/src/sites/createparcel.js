@@ -1,13 +1,13 @@
 import {useState} from "react";
-import {useContext} from "react";
-import {UserContext} from "../index";
 import {CreateParcelRequest} from "../request/parcel/createparcelrequest";
 import {Navigate} from "react-router-dom";
+import {getSession} from "../controllers/sessioncontroller";
 
 export default function CreateParcelSite() {
     const [fields, setFields] = useState({});
     const [errorFields, setErrorFields] = useState({});
     const [error, setError] = useState({errorCode: "", errorMessage: "", createdParcelId: 0});
+    let role = getSession().role;
 
     const createRequest = () => {
         CreateParcelRequest(fields, setErrorFields, setError);
@@ -81,7 +81,9 @@ export default function CreateParcelSite() {
         )
     }
 
-    if (error.errorCode !== 200 && error.errorCode !== 201) {
+    if (role === "") {
+        return (<Navigate to={"/login"}/>);
+    } else if (error.errorCode !== 200 && error.errorCode !== 201) {
         return Navigation();
     } else {
         let path = "/parcel/" + error.createdParcelId;

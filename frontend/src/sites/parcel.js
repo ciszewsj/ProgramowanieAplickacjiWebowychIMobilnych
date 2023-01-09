@@ -15,8 +15,10 @@ export default function ParcelSite() {
     let [error, setError] = useState({code: 0, message: "Not Load"});
     let [errorSubmit, setErrorSubmit] = useState();
     let {id} = useParams();
-    let username = getSession().name;
     let role = getSession().role;
+
+    console.log(role)
+
     const refreshPage = () => {
         navigate(0);
     }
@@ -118,7 +120,7 @@ export default function ParcelSite() {
                     </div>
                     {role && role === "ROLE_admin" && <>
                         {
-                            info.parcelStatus && info.parcelStatus.at(-1).status === "NOT_SENT" && info.sender === username &&
+                            info.parcelStatus && info.parcelStatus.at(-1).status === "NOT_SENT" &&
                             <Button
                                 onClick={() => {
                                     changeParcelStatus(info.id, "SENT", setErrorSubmit);
@@ -127,13 +129,14 @@ export default function ParcelSite() {
                             >Send Package</Button>
                         }
                         {
-                            info.parcelStatus && info.parcelStatus.at(-1).status === "SENT" && info.sender === username &&
+                            info.parcelStatus && info.parcelStatus.at(-1).status === "SENT" &&
                             <Button
                                 onClick={() => {
                                     changeParcelStatus(info.id, "DELIVERED", setErrorSubmit);
                                 }}
                             >Set Delivered</Button>
                         }
+                        {error.toString()}
                     </>
                     }
 

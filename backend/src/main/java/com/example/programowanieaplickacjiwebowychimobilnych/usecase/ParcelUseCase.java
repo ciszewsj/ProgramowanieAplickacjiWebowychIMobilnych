@@ -11,9 +11,9 @@ import java.util.List;
 
 public interface ParcelUseCase {
 
-	Parcel createParcel(Long userId,CreateParcelRequest request);
+	Parcel createParcel(Long userId, CreateParcelRequest request);
 
-	Parcel getParcel(Long parcelId, Long userId);
+	Parcel getParcel(Customer customer, Long parcelId);
 
 	List<Parcel> getParcels(Long userId);
 

@@ -10,5 +10,5 @@ public class ChangeParcelStatusRequest {
 	@NotBlank
 	private Long parcelId;
 	@NotBlank
-	private ParcelStatus parcelStatus;
+	private ParcelStatus.Status parcelStatus;
 }

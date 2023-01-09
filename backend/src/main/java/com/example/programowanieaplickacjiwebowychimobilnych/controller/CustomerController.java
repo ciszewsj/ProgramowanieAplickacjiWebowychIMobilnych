@@ -30,7 +30,6 @@ public class CustomerController {
 	@PostMapping("/register")
 	@ResponseStatus(HttpStatus.CREATED)
 	public void registerCustomer(@RequestBody @Validated RegisterRequest request) {
-		log.info("Register request : {}", request);
 		customerUseCase.createCustomer(request);
 	}
 }

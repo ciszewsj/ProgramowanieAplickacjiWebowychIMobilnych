@@ -8,11 +8,11 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Component;
 
-import java.io.Serializable;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.function.Function;
+import java.util.stream.Collectors;
 
 @Slf4j
 @Component
@@ -49,18 +49,18 @@ public class JwtTokenUtil {
 	}
 
 	private Boolean ignoreTokenExpiration(String token) {
-		// here you specify tokens, for that the expiration is ignored
 		return false;
 	}
 
 	public String generateToken(UserDetails userDetails) {
 		Map<String, Object> claims = new HashMap<>();
+		if (userDetails.getAuthorities().stream().findAny().isPresent()) {
+			claims.put("role", userDetails.getAuthorities().stream().findFirst().get().getAuthority());
+		}
 		return doGenerateToken(claims, userDetails.getUsername());
 	}
 
 	private String doGenerateToken(Map<String, Object> claims, String subject) {
-		log.error(claims.toString());
-		log.error(subject);
 		return Jwts.builder()
 				.setClaims(claims)
 				.setSubject(subject)

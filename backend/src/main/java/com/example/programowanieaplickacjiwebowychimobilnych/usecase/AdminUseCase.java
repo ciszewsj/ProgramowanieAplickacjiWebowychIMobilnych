@@ -7,10 +7,10 @@ import org.springframework.data.domain.Page;
 import java.util.List;
 
 public interface AdminUseCase {
-	Page<Parcel> getParcels();
+	List<Parcel> getParcels();
 
 	Parcel getParcel(Long parcelId);
 
-	void changeParcelStatus(Long parcelId, ParcelStatus parcelStatus);
+	void changeParcelStatus(Long parcelId, ParcelStatus.Status parcelStatus);
 
 }

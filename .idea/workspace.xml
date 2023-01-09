@@ -5,50 +5,23 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b1e7f528-427c-4ca4-8a8c-b27308c2c60a" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.mvn/wrapper/maven-wrapper.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.mvn/wrapper/maven-wrapper.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mvnw" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mvnw.cmd" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/programowanieaplickacjiwebowychimobilnych/ProgramowanieAplickacjiWebowychIMobilnychApplication.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/programowanieaplickacjiwebowychimobilnych/config/ApplicationRoles.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/programowanieaplickacjiwebowychimobilnych/config/ExceptionHandler.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/programowanieaplickacjiwebowychimobilnych/config/JwtAuthenticationEntryPoint.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/programowanieaplickacjiwebowychimobilnych/config/JwtRequestFilter.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/programowanieaplickacjiwebowychimobilnych/config/JwtTokenUtil.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/programowanieaplickacjiwebowychimobilnych/config/SpringFoxConfig.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/programowanieaplickacjiwebowychimobilnych/config/WebSecurityConfig.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/programowanieaplickacjiwebowychimobilnych/controller/AdminController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/programowanieaplickacjiwebowychimobilnych/controller/CustomerController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/programowanieaplickacjiwebowychimobilnych/controller/ParcelController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/programowanieaplickacjiwebowychimobilnych/data/entity/Address.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/programowanieaplickacjiwebowychimobilnych/data/entity/Customer.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/programowanieaplickacjiwebowychimobilnych/data/entity/Parcel.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/programowanieaplickacjiwebowychimobilnych/data/entity/ParcelStatus.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/programowanieaplickacjiwebowychimobilnych/data/entity/Recipient.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/programowanieaplickacjiwebowychimobilnych/data/request/AddressInformationRequest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/programowanieaplickacjiwebowychimobilnych/data/request/ChangeParcelStatusRequest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/programowanieaplickacjiwebowychimobilnych/data/request/CreateParcelRequest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/programowanieaplickacjiwebowychimobilnych/data/request/LoginRequest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/programowanieaplickacjiwebowychimobilnych/data/request/RecipientInformationRequest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/programowanieaplickacjiwebowychimobilnych/data/request/RegisterRequest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/programowanieaplickacjiwebowychimobilnych/data/response/LoginResponse.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/programowanieaplickacjiwebowychimobilnych/exception/ParametrizedException.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/programowanieaplickacjiwebowychimobilnych/repositories/AddressRepository.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/programowanieaplickacjiwebowychimobilnych/repositories/CustomerRepository.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/programowanieaplickacjiwebowychimobilnych/repositories/ParcelRepository.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/programowanieaplickacjiwebowychimobilnych/repositories/ParcelStatusRepository.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/programowanieaplickacjiwebowychimobilnych/repositories/RecipientRepository.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/programowanieaplickacjiwebowychimobilnych/services/AdminService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/programowanieaplickacjiwebowychimobilnych/services/CustomerService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/programowanieaplickacjiwebowychimobilnych/services/JwtUserDetailsService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/programowanieaplickacjiwebowychimobilnych/services/ParcelService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/programowanieaplickacjiwebowychimobilnych/usecase/AdminUseCase.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/programowanieaplickacjiwebowychimobilnych/usecase/CustomerUseCase.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/programowanieaplickacjiwebowychimobilnych/usecase/ParcelUseCase.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/example/programowanieaplickacjiwebowychimobilnych/ProgramowanieAplickacjiWebowychIMobilnychApplicationTests.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/example/programowanieaplickacjiwebowychimobilnych/config/JwtAuthenticationEntryPoint.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/example/programowanieaplickacjiwebowychimobilnych/config/JwtAuthenticationEntryPoint.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/example/programowanieaplickacjiwebowychimobilnych/config/JwtRequestFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/example/programowanieaplickacjiwebowychimobilnych/config/JwtRequestFilter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/example/programowanieaplickacjiwebowychimobilnych/config/WebSecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/example/programowanieaplickacjiwebowychimobilnych/config/WebSecurityConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/example/programowanieaplickacjiwebowychimobilnych/controller/ParcelController.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/example/programowanieaplickacjiwebowychimobilnych/controller/ParcelController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/example/programowanieaplickacjiwebowychimobilnych/data/entity/ParcelStatus.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/example/programowanieaplickacjiwebowychimobilnych/data/entity/ParcelStatus.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/example/programowanieaplickacjiwebowychimobilnych/data/entity/Recipient.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/example/programowanieaplickacjiwebowychimobilnych/data/entity/Recipient.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/example/programowanieaplickacjiwebowychimobilnych/data/request/CreateParcelRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/example/programowanieaplickacjiwebowychimobilnych/data/request/CreateParcelRequest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/example/programowanieaplickacjiwebowychimobilnych/services/ParcelService.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/example/programowanieaplickacjiwebowychimobilnych/services/ParcelService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/example/programowanieaplickacjiwebowychimobilnych/usecase/AdminUseCase.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/example/programowanieaplickacjiwebowychimobilnych/usecase/AdminUseCase.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/example/programowanieaplickacjiwebowychimobilnych/usecase/ParcelUseCase.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/example/programowanieaplickacjiwebowychimobilnych/usecase/ParcelUseCase.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/request/createparcelrequest.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/request/createparcelrequest.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/sites/createparcel.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/sites/createparcel.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/sites/myparcel.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/sites/myparcel.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/sites/register.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/sites/register.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -112,6 +85,7 @@
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="preferences.sourceCode" />
+    <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
@@ -183,6 +157,12 @@
       <workItem from="1668720874664" duration="7727000" />
       <workItem from="1668761179382" duration="16000" />
       <workItem from="1668880403503" duration="223000" />
+      <workItem from="1669191315666" duration="68000" />
+      <workItem from="1669191788464" duration="21000" />
+      <workItem from="1669275376769" duration="34000" />
+      <workItem from="1669276905080" duration="1218000" />
+      <workItem from="1669570945645" duration="32000" />
+      <workItem from="1670106836343" duration="84000" />
     </task>
     <servers />
   </component>

@@ -6,19 +6,19 @@ import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
 import javax.persistence.*;
-import java.util.ArrayList;
 import java.util.Collection;
+import java.util.HashSet;
 
 @Entity
 @Setter
 @Getter
-
+@Table(name = "customer")
 public class Customer implements UserDetails {
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 
-	@Column(unique = true)
+	@Column(unique = true, name = "username")
 	private String name;
 
 	private String password;
@@ -26,13 +26,13 @@ public class Customer implements UserDetails {
 
 	private String email;
 
-	@OneToOne
-	private Address address;
+	@ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+	private Collection<Role> roles = new HashSet<>();
 
 
 	@Override
 	public Collection<? extends GrantedAuthority> getAuthorities() {
-		return new ArrayList<>();
+		return roles;
 	}
 
 	@Override
