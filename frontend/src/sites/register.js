@@ -69,6 +69,9 @@ export default function RegisterSite() {
                             <><span className="error text-danger">{errorFields.repeatPassword}</span><br/></>}
 
                     </div>
+
+                    {error.status === 500 && <span>User already exists</span>}
+
                     <button type="button" className="btn btn-primary" onClick={requestRegister}>Submit</button>
                 </form>
                 {error.status === 201 && <Navigate to="/login"/>}
