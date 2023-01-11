@@ -1,0 +1,59 @@
+version: '3.8'
+
+services:
+  mariadbpamiw:
+    image: mariadb:10.3
+    restart: alwayss
+    container_name: mariadbpamiw
+    environment:
+      - MYSQL_ROOT_PASSWORD=password
+    volumes:
+      - ./conf/mariadb:/docker-entrypoint-initdb.d
+      - ./conf/mariadb-e/50-server.cnf:/etc/mysql/mariadb.conf.d/50-server.cnf
+    healthcheck:
+      test: mysqladmin ping -h 127.0.0.1 -u root --password=password
+      interval: 1s
+      timeout: 20s
+      retries: 10
+    networks:
+      pamiw-net:
+        ipv4_address: 192.168.13.3
+
+  pamiw-beckend:
+    build: ./backend
+    depends_on:
+      mariadbpamiw:
+        condition: service_healthy
+    volumes:
+      - ./conf/application.properties.d/nbs-vision-profiles-rest-server/application.properties:/tmp/nbs-vision-profiles-rest-server/application.properties:rw
+      - ./conf/note-app/application.properties:/app/application.properties:rw
+    networks:
+      pamiw-net:
+        ipv4_address: 192.168.13.4
+
+  nginx-pamiw:
+    build: ./docker
+    #    image: nginx:latest
+    restart: always
+    container_name: nginx-pamiw
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      #      - ./conf/etc/env/:/etc/nginx/
+      - ./conf/etc/env/nginx.conf:/etc/nginx/nginx.conf:rw
+      - ./conf/etc/env/passwd.txt:/etc/nginx/passwd.txt:rw
+      - ./conf/etc/env/localhost.cert.pem:/etc/nginx/localhost.cert.pem:rw
+      - ./conf/etc/env/localhost.key.pem:/etc/nginx/localhost.key.pem:rw
+      - ./conf/etc/env/snippets:/etc/nginx/snippets:rw
+    networks:
+      pamiw-net:
+        ipv4_address: 192.168.13.5
+
+networks:
+  pamiw-net:
+    driver: bridge
+    name: pamiw-net
+    ipam:
+      config:
+        - subnet: 192.168.13.0/24

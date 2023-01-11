@@ -1,5 +1,5 @@
 export let parcelRequest = (id, setParcel, setError, token) => {
-    fetch('http://10.12.6.35:8080/api/parcel/' + id,
+    fetch('http://192.168.191.148:8080/api/parcel/' + id,
         {
             "mode": "cors",
             "method": "GET",

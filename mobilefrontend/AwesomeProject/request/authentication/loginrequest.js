@@ -1,7 +1,7 @@
 import {addSession} from "../sessioncontroller";
 
 export let LoginRequest = (setLoginUser, setError, login, password) => {
-    fetch('http://10.12.6.35:8080/api/customer/login',
+    fetch('http://192.168.191.148:8080/api/customer/login',
         {
             "mode": "cors",
             "method": "POST",

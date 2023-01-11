@@ -1,5 +1,5 @@
 export let changeParcelStatus = (parcelId, parcelStatus, setError, token) => {
-    fetch('http://10.12.6.35:8080/api/admin/parcel',
+    fetch('http://192.168.191.148:8080/api/admin/parcel',
         {
             "mode": "cors",
             "method": "PUT",

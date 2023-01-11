@@ -10,7 +10,7 @@ const RegisterScreen = ({navigation}) => {
 
     const [fields, setFields] = useState({});
     const [errorFields, setErrorFields] = useState({});
-    const [error, setError] = useState({});
+    const [error, setError] = useState();
     const {user, setUser} = useContext(UserContext);
 
 
@@ -80,7 +80,7 @@ const RegisterScreen = ({navigation}) => {
                 title="Register"
                 onPress={requestRegister}
             />
-            {error.status === 500 && <Text>User already exists</Text>}
+            {/*{error && <Text>User already exists</Text>}*/}
 
             {error && <Text>Could not register. Try again!</Text>}
         </SafeAreaView>

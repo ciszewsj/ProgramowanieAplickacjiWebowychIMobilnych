@@ -1,5 +1,5 @@
 export let RegisterRequest = (fields, setErrorFields, setError) => {
-    fetch('http://10.12.6.35:8080/api/customer/register',
+    fetch('http://192.168.191.148:8080/api/customer/register',
         {
             "mode": "cors",
             "method": "POST",

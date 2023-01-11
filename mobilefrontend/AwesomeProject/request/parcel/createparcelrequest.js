@@ -1,6 +1,6 @@
 
 export let CreateParcelRequest = (fields, setErrorFields, setError, token) => {
-    fetch('http://10.12.6.35:8080/api/parcel',
+    fetch('http://192.168.191.148:8080/api/parcel',
         {
             "mode": "cors",
             "method": "POST",
