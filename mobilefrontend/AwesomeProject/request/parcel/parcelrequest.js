@@ -1,6 +1,4 @@
-import {getSession} from "../../controllers/sessioncontroller";
-
-export let parcelRequest = (id, setParcel, setError) => {
+export let parcelRequest = (id, setParcel, setError, token) => {
     fetch('http://10.12.6.35:8080/api/parcel/' + id,
         {
             "mode": "cors",
@@ -8,7 +6,7 @@ export let parcelRequest = (id, setParcel, setError) => {
             headers: {
                 Accept: 'application/json',
                 'Content-Type': 'application/json',
-                Authorization: `Bearer ${getSession().token}`
+                Authorization: `Bearer ${token}`
             }
         }
     )

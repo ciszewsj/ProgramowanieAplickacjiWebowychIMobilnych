@@ -1,13 +1,18 @@
-import {useContext, useState} from "react";
+import {useContext, useEffect, useState} from "react";
 import {UserContext} from "../App";
 import {Button, SafeAreaView, Text, TextInput} from "react-native";
 import {RegisterRequest} from "../request/authentication/registerrequest";
+import {useIsFocused} from "@react-navigation/native";
 
 const RegisterScreen = ({navigation}) => {
+    const isFocused = useIsFocused();
+
+
     const [fields, setFields] = useState({});
     const [errorFields, setErrorFields] = useState({});
     const [error, setError] = useState({});
     const {user, setUser} = useContext(UserContext);
+
 
     const requestRegister = () => {
         setErrorFields({});

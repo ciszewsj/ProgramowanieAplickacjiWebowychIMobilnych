@@ -7,13 +7,14 @@ import RegisterScreen from "../fragments/RegisterScreen";
 import CreateParcelScreen from "../fragments/CreateParcelScreen";
 import ParcelsScreen from "../fragments/ParcelsScreen";
 import AdminScreen from "../fragments/AdminScreen";
+import LogoutScreen from "../fragments/LogoutScreen";
 
 
 let Nav = ({Drawer}) => {
     const {user} = useContext(UserContext);
 
     return (
-        <Drawer.Navigator initialRouteName="Home">
+        <Drawer.Navigator initialRouteName="Main">
             <Drawer.Screen name="Main" component={HomeScreen}/>
             <Drawer.Screen name="Create Parcel" component={CreateParcelScreen}/>
             {user && user.token && user.token !== "" ?
@@ -22,7 +23,7 @@ let Nav = ({Drawer}) => {
                     {user.role === "ROLE_admin" &&
                         <Drawer.Screen name="Admin" component={AdminScreen}/>
                     }
-                    <Drawer.Screen name="Logout" component={HomeScreen}/>
+                    <Drawer.Screen name="Logout" component={LogoutScreen}/>
                 </>
                 :
                 <>
@@ -30,6 +31,7 @@ let Nav = ({Drawer}) => {
                     <Drawer.Screen name="Register" component={RegisterScreen}/>
                 </>
             }
+
         </Drawer.Navigator>
     );
 }

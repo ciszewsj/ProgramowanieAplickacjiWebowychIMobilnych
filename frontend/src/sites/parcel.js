@@ -19,10 +19,6 @@ export default function ParcelSite() {
 
     console.log(role)
 
-    const refreshPage = () => {
-        navigate(0);
-    }
-
     useEffect(() => {
         parcelRequest(id, setInfo, setError);
     }, [errorSubmit]);
@@ -114,7 +110,7 @@ export default function ParcelSite() {
                             <h5>Send:</h5>
                         </div>
                         <div className="col">
-                            {!info.parcelStatus.at(-1).status !== "NOT SENT" ?
+                            {info.parcelStatus.at(-1).status === "NOT_SENT" ?
                                 <p>PARCEL NOT SENT</p> : <p>PARCEL SENT</p>}
                         </div>
                     </div>
@@ -136,7 +132,6 @@ export default function ParcelSite() {
                                 }}
                             >Set Delivered</Button>
                         }
-                        {error.toString()}
                     </>
                     }
 

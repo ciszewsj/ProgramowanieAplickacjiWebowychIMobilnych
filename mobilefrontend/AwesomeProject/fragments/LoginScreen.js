@@ -28,7 +28,7 @@ const LoginScreen = ({navigation}) => {
                     LoginRequest(setUser, setError, name, password);
                 }}
             />
-            {error && <Text>Could not login. Try again! {error}</Text>}
+            {error && <Text>Could not login. Try again!</Text>}
         </SafeAreaView>
 
     );

@@ -1,6 +1,4 @@
-import {getSession} from "../../controllers/sessioncontroller";
-
-export let changeParcelStatus = (parcelId, parcelStatus, setError) => {
+export let changeParcelStatus = (parcelId, parcelStatus, setError, token) => {
     fetch('http://10.12.6.35:8080/api/admin/parcel',
         {
             "mode": "cors",
@@ -8,7 +6,7 @@ export let changeParcelStatus = (parcelId, parcelStatus, setError) => {
             headers: {
                 'Accept': 'application/json',
                 'Content-Type': 'application/json',
-                'Authorization': `Bearer ${getSession().token}`
+                'Authorization': `Bearer ${token}`
             },
             "body": JSON.stringify(
                 {

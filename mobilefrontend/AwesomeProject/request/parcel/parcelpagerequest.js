@@ -13,7 +13,7 @@ export let parcelsPageRequest = (setParcels, setError, token) => {
         }
     )
         .then(response => {
-
+            console.log(response.status)
             if (response.status === 200) {
                 response.json().then(json => {
                     setParcels(json)
@@ -29,6 +29,7 @@ export let parcelsPageRequest = (setParcels, setError, token) => {
             }
         })
         .catch(e => {
+            console.log("123")
             setError(e.toString());
         });
 }
